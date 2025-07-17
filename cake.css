@@ -81,51 +81,60 @@ a:hover {
 /* Removed .hamburger-menu styling as we are not using a toggled hidden menu */
 
 
-/* Hero Section (no change from previous complete version) */
+/* Hero Section */
 .hero-section {
     min-height: 100vh;
     background: -webkit-linear-gradient(left, #fff8e1, #5e1f12);
     width: 100%;
     padding: 50px 30px;
-  display: flex;
 }
 
 .hero-section .section-content {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /* Vertically aligns items in the center */
+    justify-content: space-between; /* Pushes items to the ends with space in between */
     gap: 30px;
     padding-top: 90px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if space is limited */
     max-width: 1300px;
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
 }
 
+.hero-section .section-content .hero-details {
+    flex: 1; /* Allows it to grow and shrink */
+    min-width: 300px; /* Ensures it doesn't get too small before wrapping */
+    max-width: 60%; /* Limit its maximum width to leave space for the image */
+}
+
 .hero-section .section-content .hero-details h1 {
-    max-width: 70%;
     font-size: 3rem;
     margin-bottom: 50px;
     color: #5f1709;
 }
 
-img {
-    width: 500px;
-    height: 400px;
-    border-radius: 0% 30% 0% 30%;
-    object-fit: cover;
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 .hero-section .section-content .hero-details p {
-    max-width: 70%;
     font-size: 1.1rem;
     margin-bottom: 40px;
     line-height: 35px;
     color: #5e1f12;
+}
+
+.hero-image { /* Added this style for the container of your image */
+    flex: 1; /* Allows it to grow and shrink */
+    min-width: 300px; /* Ensures the image doesn't get too small before wrapping */
+    text-align: center; /* Center the image if it's smaller than its container */
+}
+
+img {
+    width: 100%; /* Image takes 100% of its parent container's width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 500px; /* Limit the maximum size of the image */
+    border-radius: 0% 30% 0% 30%;
+    object-fit: cover;
+    display: block; /* Ensures no extra space below the image */
+    margin: 0 auto; /* Center the image within its flex item if it's smaller than max-width */
 }
 
 .hero-section .section-content .hero-details .order-now {
@@ -173,36 +182,38 @@ img {
     }
 
     .hero-section .section-content {
-        flex-direction: column;
+        flex-direction: column; /* Stack items vertically on tablet and smaller */
         padding-top: 50px;
         gap: 40px;
-        text-align: center;
+        text-align: center; /* Center text when stacked */
         max-width: 700px;
     }
 
     .hero-section .section-content .hero-details {
-        width: 100%;
+        width: 100%; /* Take full width when stacked */
+        max-width: none; /* Remove max-width restriction when stacked */
     }
 
     .hero-section .section-content .hero-details h1 {
         font-size: 2.5rem;
-        max-width: 90%;
+        max-width: 90%; /* Keep max-width for text within the centered block */
         margin: 0 auto 15px auto;
     }
 
     .hero-section .section-content .hero-details p {
         font-size: 1rem;
-        max-width: 90%;
+        max-width: 90%; /* Keep max-width for text within the centered block */
         margin: 15px auto;
     }
 
     img {
-        max-width: 450px;
+        max-width: 450px; /* Adjust max-width for tablet */
         height: auto;
+        margin: 0 auto; /* Center image when stacked */
     }
 
     .hero-section .section-content .hero-details .order-now {
-        margin: 0 auto;
+        margin: 0 auto; /* Center the button when stacked */
     }
 }
 
@@ -327,92 +338,3 @@ img {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.poppins-black-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-style: italic;
-  }
-
-
-  .poppins-bold {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-  }
