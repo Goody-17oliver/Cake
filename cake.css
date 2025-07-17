@@ -1,0 +1,417 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    width: 100%;
+    background: #fff8e1;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.navbar {
+    max-width: 900px; /* Adjusted max-width as per your new input */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow navbar items to wrap onto the next line */
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Initial gap for desktop */
+}
+
+/* Base style for nav-menu: flex, horizontal */
+.nav-menu {
+    list-style: none;
+    display: flex; /* Always flex for desktop */
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Initial gap for desktop */
+}
+
+a {
+    text-decoration: none;
+    color: #5e1f12;
+}
+
+.nav-left .nav-logo .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.nav-left .nav-menu li a {
+    padding: 8px 10px;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    font-weight: 600;
+    transition: 0.5s linear;
+}
+
+.nav-right .btn {
+    background-color: #5e1f12;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.5s linear;
+}
+
+.nav-right .btn:hover {
+    background-color: transparent;
+    color: #5e1f12;
+    border: 1px solid #5e1f12;
+    text-decoration: none;
+}
+
+/* Removed .hamburger-menu styling as we are not using a toggled hidden menu */
+
+
+/* Hero Section (no change from previous complete version) */
+.hero-section {
+    min-height: 100vh;
+    background: -webkit-linear-gradient(left, #fff8e1, #5e1f12);
+    width: 100%;
+    padding: 50px 30px;
+}
+
+.hero-section .section-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding-top: 90px;
+    flex-wrap: wrap;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.hero-section .section-content .hero-details h1 {
+    max-width: 70%;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #5f1709;
+}
+
+img {
+    width: 500px;
+    height: 400px;
+    border-radius: 0% 30% 0% 30%;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-section .section-content .hero-details p {
+    max-width: 70%;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 35px;
+    color: #5e1f12;
+}
+
+.hero-section .section-content .hero-details .order-now {
+    padding: 10px 20px;
+    border: 1px solid #5e1f12;
+    background: transparent;
+    color: #5e1f12;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.hero-section .section-content .hero-details .order-now:hover {
+    border: 2px solid transparent;
+    background: #5e1f12;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* --- Media Queries --- */
+
+/* Tablet (e.g., max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 15px;
+        max-width: 768px;
+    }
+
+    .nav-left, .nav-menu {
+        gap: 20px;
+    }
+
+    .nav-left .nav-menu li a {
+        font-size: 0.95rem;
+        padding: 6px 8px;
+    }
+
+    .nav-right .btn {
+        padding: 7px 18px;
+        font-size: 0.95rem;
+    }
+
+    .hero-section {
+        padding: 40px 20px;
+    }
+
+    .hero-section .section-content {
+        flex-direction: column;
+        padding-top: 50px;
+        gap: 40px;
+        text-align: center;
+        max-width: 700px;
+    }
+
+    .hero-section .section-content .hero-details {
+        width: 100%;
+    }
+
+    .hero-section .section-content .hero-details h1 {
+        font-size: 2.5rem;
+        max-width: 90%;
+        margin: 0 auto 15px auto;
+    }
+
+    .hero-section .section-content .hero-details p {
+        font-size: 1rem;
+        max-width: 90%;
+        margin: 15px auto;
+    }
+
+    img {
+        max-width: 450px;
+        height: auto;
+    }
+
+    .hero-section .section-content .hero-details .order-now {
+        margin: 0 auto;
+    }
+}
+
+/* Phone (e.g., max-width: 767px) */
+@media screen and (max-width: 767px) {
+    .navbar {
+        flex-direction: column; /* Stack logo/menu and button */
+        align-items: center; /* Center them horizontally */
+        padding: 15px 10px;
+        max-width: 100%;
+    }
+
+    .nav-left {
+        width: 100%; /* Take full width */
+        justify-content: center; /* Center logo and menu items if they stay together */
+        flex-wrap: wrap; /* Allow nav-left content (logo, menu) to wrap if needed */
+        margin-bottom: 15px; /* Add space below nav-left before button */
+        gap: 15px; /* Adjust gap for stacked elements in nav-left */
+    }
+
+    .nav-left .nav-logo {
+        margin-bottom: 10px; /* Space below logo if menu stacks below it */
+        width: 100%; /* Logo takes full width for centering */
+        text-align: center; /* Center the logo text */
+    }
+
+    .nav-menu {
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%; /* Menu takes full width */
+        gap: 10px; /* Reduce gap between stacked links */
+        align-items: center; /* Center the links */
+        padding: 10px 0; /* Add padding for vertical spacing */
+    }
+
+    .nav-menu li a {
+        padding: 8px 0; /* Adjust padding for stacked links */
+        font-size: 1rem; /* Adjust font size */
+        display: block; /* Make links take full width for easier tapping */
+        width: 100%;
+        text-align: center; /* Ensure link text is centered */
+    }
+
+    .nav-right {
+        width: 100%; /* Button container takes full width */
+        text-align: center; /* Center the button */
+        margin-top: 10px; /* Space above the button */
+    }
+
+    .nav-right .btn {
+        width: 80%; /* Make button wider */
+        max-width: 200px; /* Limit its max size */
+        padding: 10px; /* More padding for easier tap */
+        font-size: 1rem;
+    }
+
+    .hero-section {
+        padding: 30px 15px;
+    }
+
+    .hero-section .section-content {
+        padding-top: 30px;
+        gap: 25px;
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .hero-section .section-content .hero-details h1 {
+        font-size: 2rem;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero-section .section-content .hero-details p {
+        font-size: 0.9rem;
+        max-width: 100%;
+        margin-bottom: 25px;
+        line-height: 28px;
+    }
+
+    img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero-section .section-content .hero-details .order-now {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+/* Optional: Very small phones (e.g., max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 5px;
+    }
+    .nav-left .nav-logo .logo {
+        font-size: 1.6rem;
+    }
+    .nav-menu li a {
+        font-size: 0.95rem;
+        padding: 6px 0;
+    }
+    .nav-right .btn {
+        width: 90%;
+        max-width: 180px;
+        padding: 8px;
+    }
+    .hero-section {
+        padding: 20px 10px;
+    }
+    .hero-section .section-content h1 {
+        font-size: 1.8rem;
+    }
+    .hero-section .section-content p {
+        font-size: 0.85rem;
+        line-height: 24px;
+    }
+    img {
+        max-width: 280px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+
+
+  .poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }

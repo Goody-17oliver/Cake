@@ -1,0 +1,366 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    /* Removed width: auto; height: auto; from universal selector.
+       This can interfere with specific element sizing. It's better
+       to apply these properties where needed, e.g., on images. */
+}
+
+/* Header and Navbar */
+header {
+    width: 100%;
+    background: #fff8e1;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    position: relative; /* Needed for absolute positioning contexts */
+}
+
+.navbar {
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow navbar items to wrap onto the next line */
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Initial gap for desktop */
+}
+
+/* Base style for nav-menu: flex, horizontal */
+.nav-menu {
+    list-style: none;
+    display: flex; /* Always flex for desktop */
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Initial gap for desktop */
+}
+
+a {
+    text-decoration: none;
+    color: #5e1f12;
+}
+
+.nav-left .nav-logo .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.nav-left .nav-menu li a {
+    padding: 8px 10px;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    font-weight: 600;
+    transition: 0.5s linear;
+}
+
+.nav-right .btn {
+    background-color: #5e1f12;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.5s linear;
+}
+
+.nav-right .btn:hover {
+    background-color: transparent;
+    color: #5e1f12;
+    border: 1px solid #5e1f12;
+    text-decoration: none;
+}
+
+/* Main Section Wrapper (for about-us content) */
+section {
+    background: -webkit-linear-gradient(left, #fff8e1, #5e1f12);
+    /* Removed color: #fff; from here, as it conflicts with specific text colors */
+    overflow-x: hidden; /* Prevent horizontal scroll for the section */
+}
+
+/* About Us Section */
+.about-us {
+    width: 100%;
+    padding: 120px 0px; /* Vertical padding */
+    max-width: 1300px; /* Limit max width for overall about-us content */
+    margin: 0 auto; /* Center the about-us container */
+}
+
+.about-us .section-content {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items vertically in the center */
+    flex-wrap: wrap; /* Allow image and text to wrap on smaller screens */
+    padding: 0 20px; /* Add horizontal padding for smaller screens */
+}
+
+.about-us .section-content .about-image {
+    flex-shrink: 0; /* Prevent image from shrinking if content is too wide */
+    margin-bottom: 30px; /* Add space below image when stacked */
+}
+
+.about-us .section-content .about-image img {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Remove extra space below image */
+    max-width: 100%; /* Ensure image scales down on small screens */
+    height: auto; /* Maintain aspect ratio when scaling */
+    /* If you want the circular image to appear slightly smaller on larger screens
+       but still have a max, you could adjust the default width/height slightly
+       or use max-width/max-height directly. For now, max-width: 100% is key. */
+}
+
+.about-us .about-details {
+    max-width: 50%; /* Max width for text content on desktop */
+    margin-left: 60px; /* Space between image and text on desktop */
+    flex-grow: 1; /* Allow details to grow and take available space */
+    flex-basis: 400px; /* Minimum width before wrapping */
+    padding-bottom: 20px; /* Added for consistency with original example */
+}
+
+/* Section Title - Global style, likely for other sections or if about-us has its own */
+.section-title {
+    color: #fff8e1; /* Changed to #fff8e1 as per the original block for this section title */
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 60px 20px 100px; /* Added horizontal padding for safety */
+    text-transform: uppercase;
+    max-width: 100%; /* Ensure title doesn't overflow */
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    background: #fff8e1;
+    height: 5px;
+    width: 100px;
+    border-radius: 30px;
+    margin: 10px auto 0;
+}
+
+/* Specific About Details Title (if different from global) */
+.about-details .section-title {
+    padding: 0; /* Override padding from global .section-title */
+    color: #5e1f12; /* Assuming this title within details is brown, adjust if not */
+    text-align: left; /* Align to left within the text block */
+    margin-bottom: 30px; /* Space below the title in about details */
+}
+/* Adjust the ::after pseudo-element for the about-details title if needed */
+.about-details .section-title::after {
+    margin: 10px 0 0 0; /* Align line to left under title */
+}
+
+
+.about-details p {
+    line-height: 35px;
+    color: #fff8e1;
+    font-size: 1.1rem;
+    text-align: left; /* Align to left within the text block */
+    margin: 50px 0 30px; /* Adjust margin for text content */
+}
+
+
+/* --- Media Queries --- */
+
+/* Tablet (e.g., max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    /* Navbar adjustments (as previously defined) */
+    .navbar {
+        padding: 15px;
+        max-width: 900px; /* Match common tablet breakpoints */
+    }
+    .nav-left, .nav-menu {
+        gap: 20px;
+    }
+    .nav-left .nav-menu li a {
+        font-size: 0.95rem;
+        padding: 6px 8px;
+    }
+    .nav-right .btn {
+        padding: 7px 18px;
+        font-size: 0.95rem;
+    }
+
+    /* About Us Section adjustments */
+    .about-us {
+        padding: 80px 0px; /* Adjust vertical padding */
+        max-width: 900px; /* Max-width for about-us container */
+    }
+
+    .about-us .section-content {
+        flex-direction: column; /* Stack image and text vertically */
+        padding: 0 15px; /* Adjust horizontal padding */
+    }
+
+    .about-us .section-content .about-image img {
+        width: 350px; /* Smaller image on tablet */
+        height: 350px;
+        margin: 0 auto 30px; /* Center image and add bottom margin */
+    }
+
+    .about-us .about-details {
+        max-width: 100%; /* Take full width when stacked */
+        margin-left: 0; /* Remove left margin when stacked */
+        text-align: center; /* Center text when stacked */
+    }
+    .about-details .section-title {
+        text-align: center; /* Center title within details when stacked */
+    }
+    .about-details .section-title::after {
+        margin: 10px auto 0; /* Center line under title when stacked */
+    }
+    .about-details p {
+        text-align: center; /* Center paragraph text when stacked */
+        margin: 30px auto; /* Adjust vertical margin for text */
+    }
+
+    /* Global Section Title (if it's present on the page) */
+    .section-title {
+        font-size: 1.8rem;
+        padding: 40px 15px 80px;
+    }
+    .section-title::after {
+        width: 80px;
+    }
+}
+
+/* Phone (e.g., max-width: 767px) */
+@media screen and (max-width: 767px) {
+    /* Navbar adjustments (Pure CSS stacking) */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 10px;
+        max-width: 100%;
+    }
+    .nav-left {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+        gap: 15px;
+    }
+    .nav-left .nav-logo {
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 0;
+    }
+    .nav-menu li a {
+        padding: 8px 0;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-right {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .nav-right .btn {
+        width: 80%;
+        max-width: 200px;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    /* About Us Section adjustments */
+    .about-us {
+        padding: 60px 0px; /* Further adjust vertical padding */
+        max-width: 100%; /* Take full width on small phones */
+    }
+
+    .about-us .section-content {
+        padding: 0 10px; /* Reduce horizontal padding */
+    }
+
+    .about-us .section-content .about-image img {
+        width: 280px; /* Smaller image on phone */
+        height: 280px;
+        margin-bottom: 20px; /* Adjust margin */
+    }
+
+    .about-us .about-details {
+        padding: 0 10px; /* Add internal padding for text block */
+    }
+    .about-details .section-title {
+        font-size: 1.5rem; /* Smaller title within details */
+        margin-bottom: 20px; /* Adjust margin */
+    }
+    .about-details .section-title::after {
+        width: 60px; /* Smaller line */
+    }
+    .about-details p {
+        font-size: 1rem; /* Smaller paragraph text */
+        line-height: 28px; /* Adjust line height */
+        margin: 20px auto; /* Adjust vertical margin for text */
+    }
+
+    /* Global Section Title (if present) */
+    .section-title {
+        font-size: 1.5rem;
+        padding: 30px 10px 60px;
+    }
+    .section-title::after {
+        width: 60px;
+    }
+}
+
+/* Optional: Very small phones (e.g., max-width: 480px) */
+@media screen and (max-width: 480px) {
+    /* Navbar adjustments (as previously defined for very small phones) */
+    .navbar {
+        padding: 10px 5px;
+    }
+    .nav-left .nav-logo .logo {
+        font-size: 1.6rem;
+    }
+    .nav-menu li a {
+        font-size: 0.95rem;
+        padding: 6px 0;
+    }
+    .nav-right .btn {
+        width: 90%;
+        max-width: 180px;
+        padding: 8px;
+    }
+
+    /* About Us Section adjustments */
+    .about-us {
+        padding: 40px 0px;
+    }
+    .about-us .section-content .about-image img {
+        width: 250px; /* Even smaller image */
+        height: 250px;
+    }
+    .about-details .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    .about-details p {
+        font-size: 0.9rem;
+        line-height: 25px;
+        margin: 15px auto;
+    }
+}

@@ -1,0 +1,186 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: url(choco-truffle.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh; /* Ensure background covers full viewport height */
+    background-position: center; /* Center the background image by default */
+    overflow-x: hidden; /* Prevent horizontal scrollbar from body itself */
+}
+
+/*Login Form*/
+.form {
+    display: flex;
+    flex-direction: column;
+    /* Changed height to auto for flexibility, removed fixed height */
+    height: auto;
+    width: 100%; /* Make it take full width initially */
+    max-width: 400px; /* But don't let it grow beyond 400px */
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px solid #250902;
+    border-radius: 25px;
+    background: rgba(230, 228, 228, 0.774);
+    padding: 20px; /* Added internal padding */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+h1 {
+    color: rgb(109, 16, 16);
+    font-size: 2.5rem;
+    /* Corrected border-bottom property */
+    border-bottom: 2px solid rgb(109, 16, 16);
+    margin: 50px 0; /* Adjusted margin for better vertical spacing, no horizontal */
+    font-weight: 600;
+    text-align: center; /* Center the heading */
+    padding-bottom: 10px; /* Add some space below the border */
+}
+
+/*Boxes*/
+.box {
+    padding: 12px;
+    margin: 15px 0; /* Adjusted margin for better vertical spacing and no horizontal margin */
+    width: 90%; /* Increased initial width percentage for better mobile UX */
+    max-width: 300px; /* Prevent it from getting too wide on larger screens */
+    outline: none;
+    border-radius: 25px;
+    /* box-shadow property takes multiple values, simplified or remove if not fully defined */
+    /* If you want a specific shadow, use something like: box-shadow: 2px 2px 5px #5e1f12; */
+    border: 2px solid #250902; /* Moved border to here for clarity */
+    font-size: 1rem;
+    background-color: rgb(167, 163, 163);
+    color: black;
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+.box:hover {
+    background-color: rgb(163, 161, 161);
+}
+
+::placeholder {
+    color: #250902;
+    font-size: 1rem;
+}
+
+.submit {
+    width: 60%; /* Adjusted width for better usability on smaller screens */
+    max-width: 200px; /* Added a max-width */
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #270d07;
+    border: 2px solid #270d07;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-weight: 600;
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.submit:hover {
+    background-color: #db9181a1;
+    color: black;
+}
+
+/* --- Media Queries --- */
+
+/* Tablet (e.g., max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    .form {
+        max-width: 450px; /* Allow it to be slightly wider than base on larger tablets */
+        margin-top: 40px; /* Slightly reduce top margin */
+    }
+
+    h1 {
+        font-size: 2.2rem; /* Slightly smaller heading */
+        margin: 40px 0;
+    }
+
+    .box {
+        width: 85%; /* Adjust input box width for tablets */
+        max-width: 350px;
+    }
+
+    .submit {
+        width: 55%; /* Adjust button width */
+        max-width: 250px;
+    }
+}
+
+/* Phone (e.g., max-width: 767px) */
+@media screen and (max-width: 767px) {
+      body {
+        /* background-size: cover; and background-position: center; are already in base, but can be
+           overridden here if a different behavior is needed specifically for phones.
+           They are good defaults, so no change needed here unless specific issue. */
+    }
+
+    .form {
+        width: 95%; /* Make the form take up almost full width on phones */
+        max-width: 350px; /* Set a max-width to keep it readable */
+        margin-top: 20px; /* Reduce top margin further */
+        border-radius: 15px; /* Slightly smaller border-radius */
+        padding: 15px; /* Reduce padding */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Significantly smaller heading */
+        margin: 30px 0;
+        padding-bottom: 8px;
+    }
+
+    .box {
+        width: 95%; /* Make input boxes wider on phones */
+        padding: 10px; /* Slightly less padding for input boxes */
+        margin: 10px 0; /* Reduce margin for input boxes */
+        font-size: 0.9rem; /* Slightly smaller font size for inputs */
+        max-width: 280px; /* Adjust max-width for phone inputs */
+    }
+
+    ::placeholder {
+        font-size: 0.9rem; /* Match placeholder font size */
+    }
+
+    .submit {
+        width: 70%; /* Make the button wider on phones */
+        max-width: 180px; /* Adjust max-width for phone button */
+        padding: 8px 20px; /* Slightly less padding for the button */
+        font-size: 0.9rem; /* Slightly smaller font size for the button */
+        margin-top: 15px;
+    }
+}
+
+/* Optional: Very small phones (e.g., max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .form {
+        margin-top: 10px; /* Even less top margin for very small screens */
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: 20px 0;
+        padding-bottom: 5px;
+    }
+
+    .box {
+        width: 98%; /* Make inputs almost full width */
+        max-width: 250px;
+    }
+
+    .submit {
+        width: 85%; /* Make button even wider */
+        max-width: 160px;
+    }
+}

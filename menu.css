@@ -1,0 +1,305 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Header and Navbar */
+header {
+    width: 100%;
+    background: #fff8e1;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    position: relative; /* Needed for absolute positioning contexts */
+}
+
+.navbar {
+    max-width: 1300px; /* Max-width for desktop navbar, as in your input */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow navbar items to wrap onto the next line */
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Initial gap for desktop */
+}
+
+/* Base style for nav-menu: flex, horizontal */
+.nav-menu {
+    list-style: none;
+    display: flex; /* Always flex for desktop */
+    align-items: center;
+    justify-content: center;
+    gap: 30px; /* Initial gap for desktop */
+}
+
+a {
+    text-decoration: none;
+    color: #5e1f12;
+}
+
+.nav-left .nav-logo .logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.nav-left .nav-menu li a {
+    padding: 8px 10px;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    font-weight: 600;
+    transition: 0.5s linear;
+}
+
+.nav-right .btn {
+    background-color: #5e1f12;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 30px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.5s linear;
+}
+
+.nav-right .btn:hover {
+    background-color: transparent;
+    color: #5e1f12;
+    border: 1px solid #5e1f12;
+    text-decoration: none;
+}
+
+/* Main Section */
+section {
+    background: -webkit-linear-gradient(left, #fff8e1, #5e1f12);
+    color: #fff; /* This color might be overridden by children, check context */
+    padding: 50px 0 100px;
+    overflow-x: hidden; /* Prevent horizontal scroll for the section */
+}
+
+.section-title {
+    color: #5e1f12;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 60px 20px 100px; /* Added horizontal padding to prevent overflow on small screens */
+    text-transform: uppercase;
+    max-width: 100%; /* Ensure title doesn't overflow */
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    background: #fff8e1;
+    height: 5px;
+    width: 100px;
+    border-radius: 30px;
+    margin: 10px auto 0;
+}
+
+.section-content {
+    display: grid;
+    /* Corrected: Removed fixed margin-left for better responsiveness */
+    /* Instead, use padding on the parent section, and max-width + margin: auto on section-content */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    margin-top: 20px;
+    max-width: 1300px; /* Match navbar max-width for consistency */
+    margin-left: auto; /* Center the grid container */
+    margin-right: auto; /* Center the grid container */
+    padding: 0 20px; /* Add internal padding for content within the grid */
+    justify-content: center; /* Center items if they don't fill a full row */
+}
+
+/* Image styling */
+img {
+    width: 100%; /* Make image fill its grid cell */
+    height: 200px; /* Keep height fixed for now, adjust in media queries if needed */
+    border-radius: 10px;
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    display: block; /* Remove extra space below image */
+}
+
+img:hover {
+    background: none; /* This was from previous contexts, might not be relevant here if image is standalone */
+    /* width: 200px; - remove fixed width on hover, let grid handle it */
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3); /* Use rgba for transparency */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+
+/* --- Media Queries --- */
+
+/* Tablet (e.g., max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+    /* Navbar adjustments (as previously defined) */
+    .navbar {
+        padding: 15px;
+        max-width: 900px; /* Adjusted max-width for tablet navbar based on your input */
+    }
+    .nav-left, .nav-menu {
+        gap: 20px;
+    }
+    .nav-left .nav-menu li a {
+        font-size: 0.95rem;
+        padding: 6px 8px;
+    }
+    .nav-right .btn {
+        padding: 7px 18px;
+        font-size: 0.95rem;
+    }
+
+    /* Section & Content adjustments */
+    section {
+        padding: 40px 0 80px; /* Adjust vertical padding */
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        padding: 40px 15px 80px; /* Adjust padding */
+    }
+
+    .section-title::after {
+        width: 80px; /* Slightly smaller line */
+    }
+
+    .section-content {
+        /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); - already handled by auto-fit */
+        gap: 20px;
+        max-width: 900px; /* Match navbar max-width */
+        padding: 0 15px;
+    }
+
+    img {
+        /* height: 180px; - adjust if desired, but object-fit handles it */
+    }
+}
+
+/* Phone (e.g., max-width: 767px) */
+@media screen and (max-width: 767px) {
+    /* Navbar adjustments (Pure CSS stacking) */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px 10px;
+        max-width: 100%;
+    }
+    .nav-left {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+        gap: 15px;
+    }
+    .nav-left .nav-logo {
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 0;
+    }
+    .nav-menu li a {
+        padding: 8px 0;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-right {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .nav-right .btn {
+        width: 80%;
+        max-width: 200px;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    /* Section & Content adjustments */
+    section {
+        padding: 30px 0 60px; /* Further adjust vertical padding */
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        padding: 30px 10px 60px; /* Adjust padding */
+    }
+
+    .section-title::after {
+        width: 60px; /* Smaller line */
+    }
+
+    .section-content {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust minmax for smaller screens */
+        gap: 15px;
+        padding: 0 10px; /* Reduce horizontal padding */
+    }
+
+    img {
+        height: 150px; /* Smaller height for images on phone */
+        border-radius: 8px;
+    }
+
+    img:hover {
+        box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2); /* Smaller shadow */
+        transform: scale(1.03); /* Less aggressive zoom */
+    }
+}
+
+/* Optional: Very small phones (e.g., max-width: 480px) */
+@media screen and (max-width: 480px) {
+    /* Navbar adjustments (as previously defined for very small phones) */
+    .navbar {
+        padding: 10px 5px;
+    }
+    .nav-left .nav-logo .logo {
+        font-size: 1.6rem;
+    }
+    .nav-menu li a {
+        font-size: 0.95rem;
+        padding: 6px 0;
+    }
+    .nav-right .btn {
+        width: 90%;
+        max-width: 180px;
+        padding: 8px;
+    }
+
+    /* Section & Content adjustments */
+    section {
+        padding: 20px 0 40px;
+    }
+    .section-title {
+        font-size: 1.3rem;
+        padding: 20px 5px 40px;
+    }
+    .section-title::after {
+        width: 50px;
+    }
+    .section-content {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Even smaller minmax */
+        gap: 10px;
+        padding: 0 5px;
+    }
+    img {
+        height: 120px; /* Even smaller height */
+    }
+}
