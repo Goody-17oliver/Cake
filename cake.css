@@ -87,10 +87,11 @@ a:hover {
     background: -webkit-linear-gradient(left, #fff8e1, #5e1f12);
     width: 100%;
     padding: 50px 30px;
+  display: flex;
 }
 
 .hero-section .section-content {
-    display: flex;
+  
     align-items: center;
     justify-content: space-between;
     gap: 30px;
